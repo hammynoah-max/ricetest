@@ -18,6 +18,7 @@ export function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [hasProgress, setHasProgress] = useState(false);
+  const [isAdvancing, setIsAdvancing] = useState(false);
 
   useEffect(() => {
     setHasProgress(Boolean(loadProgress()));
@@ -65,6 +66,8 @@ export function App() {
   }
 
   function answerQuestion(value: AnswerValue) {
+    if (isAdvancing) return;
+    setIsAdvancing(true);
     const nextAnswers = { ...answers, [currentQuestion.id]: value };
     setAnswers(nextAnswers);
     window.setTimeout(() => {
@@ -73,6 +76,7 @@ export function App() {
       } else {
         setCurrentIndex((index) => index + 1);
       }
+      setIsAdvancing(false);
     }, 260);
   }
 
@@ -81,6 +85,7 @@ export function App() {
       setScreen("intro");
       return;
     }
+    setIsAdvancing(false);
     setCurrentIndex((index) => index - 1);
   }
 
@@ -91,7 +96,14 @@ export function App() {
       {screen === "question" ? (
         <div className="screen question-screen">
           <ProgressHeader current={currentIndex + 1} total={questions.length} onBack={goBack} />
-          <QuestionCard question={currentQuestion} selected={answers[currentQuestion.id]} onAnswer={answerQuestion} />
+          <QuestionCard
+            key={currentQuestion.id}
+            question={currentQuestion}
+            total={questions.length}
+            selected={answers[currentQuestion.id]}
+            disabled={isAdvancing}
+            onAnswer={answerQuestion}
+          />
         </div>
       ) : null}
       {screen === "result" ? (

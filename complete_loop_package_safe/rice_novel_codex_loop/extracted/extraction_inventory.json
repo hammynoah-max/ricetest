@@ -1,0 +1,47 @@
+{
+  "files": [
+    {
+      "source": "source\\source_01.pdf",
+      "kind": "pdf",
+      "output": "extracted\\source_01_pdf.md",
+      "status": "ok"
+    },
+    {
+      "source": "source\\source_02.hwpx",
+      "kind": "hwpx",
+      "output": "extracted\\source_02_hwpx.md",
+      "status": "ok"
+    },
+    {
+      "source": "source\\source_03.hwpx",
+      "kind": "hwpx",
+      "output": "extracted\\source_03_hwpx.md",
+      "status": "ok"
+    },
+    {
+      "source": "source\\source_04",
+      "kind": "hwpx",
+      "output": "extracted\\source_04_hwpx.md",
+      "status": "ok"
+    },
+    {
+      "source": "source\\source_05",
+      "kind": "hwpx",
+      "output": "extracted\\source_05_hwpx.md",
+      "status": "ok"
+    },
+    {
+      "source": "source\\source_06",
+      "kind": "hwpx",
+      "output": "extracted\\source_06_hwpx.md",
+      "status": "ok"
+    },
+    {
+      "source": "workbook\\workbook_01.docx",
+      "kind": "docx",
+      "output": "extracted\\workbook_01_docx.md",
+      "status": "ok"
+    }
+  ],
+  "failures": []
+}

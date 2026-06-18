@@ -12,6 +12,12 @@ export type Question = {
   optionA: string;
   optionB: string;
   neutralLabel: string;
+  imageA?: string;
+  imageB?: string;
+  imageAltA?: string;
+  imageAltB?: string;
+  illustration?: string;
+  illustrationAlt?: string;
   helper?: string;
   visualKind?: "separate" | "shape" | "gloss";
 };
@@ -27,6 +33,12 @@ export const questions: Question[] = [
     optionA: "밥알 하나하나의 경계가 비교적 또렷하게 보이는 밥",
     optionB: "밥알끼리 붙어 경계가 덜 보이는 밥",
     neutralLabel: "둘 다 비슷하다",
+    imageA: "/images/questions/q1-a.webp",
+    imageB: "/images/questions/q1-b.webp",
+    imageAltA: "밥알 경계가 또렷하게 떨어져 보이는 밥",
+    imageAltB: "밥알끼리 부드럽게 붙어 모여 보이는 밥",
+    illustration: "/images/illustrations/q1-hero.webp",
+    illustrationAlt: "밥알이 떨어진 모습과 붙은 모습을 비교하는 일러스트",
     visualKind: "separate",
   },
   {
@@ -39,6 +51,12 @@ export const questions: Question[] = [
     optionA: "밥알의 길이와 윤곽이 비교적 그대로 살아 있는 밥",
     optionB: "밥알 표면이 부드럽게 퍼져 둥글게 보이는 밥",
     neutralLabel: "둘 다 비슷하다",
+    imageA: "/images/questions/q2-a.webp",
+    imageB: "/images/questions/q2-b.webp",
+    imageAltA: "밥알의 길이와 윤곽이 살아 있는 밥",
+    imageAltB: "밥알 표면이 둥글고 부드럽게 보이는 밥",
+    illustration: "/images/illustrations/q2-hero.webp",
+    illustrationAlt: "길쭉한 밥알과 둥근 밥알 형태를 비교하는 일러스트",
     visualKind: "shape",
   },
   {
@@ -51,6 +69,12 @@ export const questions: Question[] = [
     optionA: "표면의 반짝임이 적고 밥알 결이 또렷해 보이는 밥",
     optionB: "표면에 윤기가 돌고 촉촉해 보이는 밥",
     neutralLabel: "둘 다 비슷하다",
+    imageA: "/images/questions/q3-a.webp",
+    imageB: "/images/questions/q3-b.webp",
+    imageAltA: "표면 반짝임이 적고 밥알 결이 또렷한 밥",
+    imageAltB: "표면에 은은한 윤기와 촉촉함이 보이는 밥",
+    illustration: "/images/illustrations/q3-hero.webp",
+    illustrationAlt: "윤기가 적은 밥과 촉촉한 윤기가 있는 밥을 보여주는 일러스트",
     visualKind: "gloss",
   },
   {
@@ -63,6 +87,8 @@ export const questions: Question[] = [
     optionA: "밥알이 비교적 쉽게 떨어지는 밥",
     optionB: "여러 밥알이 함께 붙어 떠지는 밥",
     neutralLabel: "둘 다 비슷하다",
+    illustration: "/images/illustrations/q4-hero.webp",
+    illustrationAlt: "숟가락 위에서 떨어지는 밥알과 함께 붙어 떠지는 밥알을 비교하는 일러스트",
   },
   {
     id: "q5",
@@ -74,6 +100,8 @@ export const questions: Question[] = [
     optionA: "밥알이 입안에서 비교적 서로 떨어져 느껴지는 밥",
     optionB: "여러 밥알이 서로 붙은 느낌으로 모여 있는 밥",
     neutralLabel: "둘 다 비슷하다",
+    illustration: "/images/illustrations/q5-hero.webp",
+    illustrationAlt: "입안에서 밥알이 떨어져 느껴지는 모습과 모여 느껴지는 모습을 비교하는 일러스트",
   },
   {
     id: "q6",
@@ -85,6 +113,8 @@ export const questions: Question[] = [
     optionA: "밥알을 누를 때 씹는 힘이 조금 더 필요한 밥",
     optionB: "밥알이 적은 힘으로 쉽게 눌리는 밥",
     neutralLabel: "둘 다 비슷하다",
+    illustration: "/images/illustrations/q6-hero.webp",
+    illustrationAlt: "밥알을 씹을 때 필요한 힘의 차이를 보여주는 일러스트",
     helper: "단단함은 설익었다는 뜻이 아니에요.",
   },
   {
@@ -97,6 +127,8 @@ export const questions: Question[] = [
     optionA: "씹어도 밥알의 형태가 잠시 남아 있는 밥",
     optionB: "씹으면 밥알의 형태가 빠르게 풀리는 밥",
     neutralLabel: "둘 다 비슷하다",
+    illustration: "/images/illustrations/q7-hero.webp",
+    illustrationAlt: "씹은 뒤 밥알 형태가 남는 경우와 빠르게 풀리는 경우를 비교하는 일러스트",
   },
   {
     id: "q8",
@@ -108,6 +140,8 @@ export const questions: Question[] = [
     optionA: "눌린 뒤에도 밥알의 탄력이 조금 남는 느낌",
     optionB: "힘을 주면 밥알이 부드럽게 으깨지는 느낌",
     neutralLabel: "둘 다 비슷하다",
+    illustration: "/images/illustrations/q8-hero.webp",
+    illustrationAlt: "탄력이 남는 밥알과 부드럽게 으깨지는 밥알을 비교하는 일러스트",
   },
   {
     id: "q9",
@@ -119,5 +153,7 @@ export const questions: Question[] = [
     optionA: "익숙하고 은은한 밥 향이 더 좋다",
     optionB: "그런 특별한 향이 있는 밥도 먹어보고 싶다",
     neutralLabel: "잘 모르겠다",
+    illustration: "/images/illustrations/q9-hero.webp",
+    illustrationAlt: "밥에서 고소한 향이 퍼지는 모습을 표현한 일러스트",
   },
 ];

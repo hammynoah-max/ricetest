@@ -10,11 +10,7 @@ export function LandingScreen({ hasProgress, onStart, onResume }: LandingScreenP
   return (
     <section className="screen landing-screen">
       <div className="hero-visual" aria-hidden="true">
-        <div className="rice-bowl">
-          {Array.from({ length: 28 }, (_, index) => (
-            <span key={index} />
-          ))}
-        </div>
+        <img className="landing-hero-image" src="/images/illustrations/landing-hero.webp" alt="" />
       </div>
       <div className="landing-copy">
         <p className="eyebrow">{serviceCopy.serviceName}</p>
