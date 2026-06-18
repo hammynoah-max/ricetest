@@ -7,7 +7,7 @@
     "build": "tsc -b && vite build",
     "test": "tsc -p tsconfig.test.json && node --test .test-build-cjs/tests/scoring.test.js .test-build-cjs/tests/resultEngine.test.js .test-build-cjs/tests/recommendation.test.js",
     "preview": "vite preview --host 127.0.0.1",
-    "start": "vite preview --host 0.0.0.0 --port ${PORT:-4173}"
+    "start": "node server.mjs"
   },
   "engines": {
     "node": ">=22"
