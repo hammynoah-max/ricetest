@@ -14,7 +14,6 @@ export function VarietyCard({ variety, reason }: VarietyCardProps) {
       </div>
       <p>{variety.summary}</p>
       <p className="reason">{reason}</p>
-      <p className="fine-print">{variety.caution}</p>
       {variety.midGlutinous ? <p className="tag-note">중간찰 특성이 함께 느껴질 수 있어요.</p> : null}
     </article>
   );

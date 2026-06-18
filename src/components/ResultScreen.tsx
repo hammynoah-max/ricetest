@@ -63,7 +63,7 @@ export function ResultScreen({
             <p className="eyebrow">향미 특별 제안</p>
             <h3>{aromaticSuggestion.name}</h3>
             <p>특별한 밥 향에도 관심을 보였으니, 고소하거나 팝콘을 떠올리게 하는 향의 차이도 경험해보세요.</p>
-            <p className="fine-print">{aromaticSuggestion.caution}</p>
+            <p className="fine-print">향은 보관 상태와 취반 조건에 따라 느껴지는 정도가 달라질 수 있어요.</p>
           </article>
         ) : null}
       </section>
