@@ -1,0 +1,18 @@
+:root {
+  --bg: #fffdf8;
+  --surface: #ffffff;
+  --surface-warm: #f8f3e8;
+  --text-primary: #292721;
+  --text-secondary: #6f6a60;
+  --line: #e9e2d5;
+  --rice-cream: #f3e5c8;
+  --rice-gold: #c89b4b;
+  --leaf: #667a58;
+  --leaf-soft: #e3e9dd;
+  --sticky: #c9755b;
+  --separate: #6f8da5;
+  --soft: #d79ab0;
+  --firm: #8a755f;
+  --focus: #315c87;
+  --error: #b5473c;
+}

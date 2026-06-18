@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noEmit": false,
+    "verbatimModuleSyntax": false,
+    "outDir": ".test-build-cjs",
+    "rootDir": "src",
+    "jsx": "react-jsx"
+  },
+  "include": ["src/data/**/*.ts", "src/lib/**/*.ts", "src/tests/**/*.ts"],
+  "exclude": []
+}
