@@ -20,8 +20,8 @@ export function QuestionCard({ question, total, selected, disabled = false, onAn
           </small>
         </span>
       </div>
-      {question.illustration ? (
-        <img className="question-illustration" src={question.illustration} alt={question.illustrationAlt ?? ""} />
+      {question.referenceImage ? (
+        <img className="question-reference" src={question.referenceImage} alt={question.referenceImageAlt ?? ""} />
       ) : null}
       <h1 id={`${question.id}-title`}>{question.prompt}</h1>
       {question.helper ? <p className="helper-text">{question.helper}</p> : null}
@@ -32,9 +32,6 @@ export function QuestionCard({ question, total, selected, disabled = false, onAn
           value={-1}
           selected={selected === -1}
           disabled={disabled}
-          visualKind={question.visualKind}
-          imageSrc={question.imageA}
-          imageAlt={question.imageAltA ?? question.optionA}
           onAnswer={onAnswer}
         />
         <ChoiceButton
@@ -43,74 +40,48 @@ export function QuestionCard({ question, total, selected, disabled = false, onAn
           value={1}
           selected={selected === 1}
           disabled={disabled}
-          visualKind={question.visualKind}
-          imageSrc={question.imageB}
-          imageAlt={question.imageAltB ?? question.optionB}
+          onAnswer={onAnswer}
+        />
+        <ChoiceButton
+          label="C"
+          text={question.neutralLabel}
+          description={question.neutralDescription}
+          value={0}
+          selected={selected === 0}
+          disabled={disabled}
           onAnswer={onAnswer}
         />
       </div>
-      <button
-        className={`neutral-button ${selected === 0 ? "is-selected" : ""}`}
-        type="button"
-        role="radio"
-        aria-checked={selected === 0}
-        disabled={disabled}
-        onClick={() => onAnswer(0)}
-      >
-        {question.neutralLabel}
-      </button>
     </section>
   );
 }
 
 type ChoiceButtonProps = {
-  label: "A" | "B";
+  label: "A" | "B" | "C";
   text: string;
+  description?: string;
   value: AnswerValue;
   selected: boolean;
   disabled: boolean;
-  visualKind?: Question["visualKind"];
-  imageSrc?: string;
-  imageAlt: string;
   onAnswer: (value: AnswerValue) => void;
 };
 
-function ChoiceButton({ label, text, value, selected, disabled, visualKind, imageSrc, imageAlt, onAnswer }: ChoiceButtonProps) {
+function ChoiceButton({ label, text, description, value, selected, disabled, onAnswer }: ChoiceButtonProps) {
   return (
     <button
-      className={`choice-button ${selected ? "is-selected" : ""}`}
+      className={`choice-button ${value === 0 ? "neutral-choice" : ""} ${selected ? "is-selected" : ""}`}
       type="button"
       role="radio"
       aria-checked={selected}
       disabled={disabled}
       onClick={() => onAnswer(value)}
     >
-      {imageSrc ? (
-        <img
-          className="question-photo"
-          src={imageSrc}
-          alt={imageAlt}
-          loading="eager"
-          onError={(event) => {
-            event.currentTarget.hidden = true;
-          }}
-        />
-      ) : visualKind ? (
-        <QuestionVisual kind={visualKind} side={label} />
-      ) : null}
       <span className="choice-label">{label}</span>
-      <span>{text}</span>
+      <span>
+        <span className="choice-text">{text}</span>
+        {description ? <span className="choice-description">{description}</span> : null}
+      </span>
     </button>
-  );
-}
-
-function QuestionVisual({ kind, side }: { kind: NonNullable<Question["visualKind"]>; side: "A" | "B" }) {
-  return (
-    <div className={`question-visual ${kind} side-${side}`} aria-hidden="true">
-      {Array.from({ length: 12 }, (_, index) => (
-        <span key={index} />
-      ))}
-    </div>
   );
 }
 

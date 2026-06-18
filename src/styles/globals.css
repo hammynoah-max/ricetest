@@ -150,8 +150,7 @@ p {
   box-shadow: 0 16px 38px rgba(83, 71, 45, 0.12);
 }
 
-.rice-bowl span,
-.question-visual span {
+.rice-bowl span {
   display: block;
   width: 18px;
   height: 28px;
@@ -161,8 +160,7 @@ p {
   transform: rotate(var(--tilt, -10deg));
 }
 
-.rice-bowl span:nth-child(2n),
-.question-visual span:nth-child(2n) {
+.rice-bowl span:nth-child(2n) {
   --tilt: 12deg;
 }
 
@@ -323,7 +321,7 @@ p {
   color: var(--rice-gold);
 }
 
-.question-illustration {
+.question-reference {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -356,6 +354,11 @@ p {
   text-align: left;
 }
 
+.choice-button.neutral-choice {
+  border-style: dashed;
+  background: var(--surface-warm);
+}
+
 .choice-button:disabled,
 .neutral-button:disabled {
   cursor: default;
@@ -380,44 +383,18 @@ p {
   font-weight: 900;
 }
 
-.question-visual {
-  grid-column: 1 / -1;
-  display: grid;
-  min-height: 82px;
-  grid-template-columns: repeat(6, 18px);
-  gap: 7px 8px;
-  align-content: center;
-  justify-content: center;
-  border-radius: 18px;
-  background: var(--surface-warm);
-}
-
-.question-photo {
-  grid-column: 1 / -1;
+.choice-text {
   display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 16px;
-  background: var(--surface-warm);
-  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--text-primary);
+  font-weight: 760;
 }
 
-.question-visual.side-B.separate {
-  gap: 5px 1px;
-}
-
-.question-visual.side-A.shape span {
-  height: 32px;
-}
-
-.question-visual.side-B.shape span {
-  width: 22px;
-  height: 24px;
-}
-
-.question-visual.side-B.gloss span {
-  background: linear-gradient(145deg, #fffef7 0%, #fff8df 45%, #d8b979 100%);
+.choice-description {
+  display: block;
+  margin-top: 5px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .neutral-button {
@@ -533,12 +510,8 @@ p {
     padding-inline: 24px;
   }
 
-  .choice-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .choice-button {
-    min-height: 240px;
+    min-height: 118px;
     align-content: start;
   }
 }
